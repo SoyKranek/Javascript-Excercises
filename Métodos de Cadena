@@ -1,0 +1,22 @@
+function formatBlogTitle(title) {
+  // Recortar espacios en blanco de ambos extremos
+  let trimmedTitle = title.trim();
+  
+  // Dividir el título en palabras
+  let words = trimmedTitle.split(" ");
+  
+  // Poner en mayúscula la primera letra de cada palabra
+  for (let i = 0; i < words.length; i++) {
+    if (words[i]) {
+      words[i] = words[i][0].toUpperCase() + words[i].substring(1).toLowerCase();
+    }
+  }
+  
+  // Unir las palabras de nuevo
+  let formattedTitle = words.join(" ");
+  
+  // Reemplazar todas las ocurrencias de "javascript" con "JavaScript"
+  formattedTitle = formattedTitle.replaceAll("Javascript", "JavaScript");
+  
+  return formattedTitle;
+}
