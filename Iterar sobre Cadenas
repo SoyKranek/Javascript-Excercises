@@ -1,0 +1,28 @@
+function reverseVowels(str) {
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    // Convertir cadena a array para hacerla mutable
+    const chars = str.split('');
+    
+    // Primero, recolectar todas las vocales
+    let foundVowels = [];
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            foundVowels.push(char);
+        }
+    }
+    
+    // Invertir el array de vocales
+    foundVowels.reverse();
+    
+    // Reemplazar vocales en la cadena original
+    let vowelIndex = 0;
+    for (let i = 0; i < chars.length; i++) {
+        if (vowels.includes(chars[i])) {
+            chars[i] = foundVowels[vowelIndex];
+            vowelIndex++;
+        }
+    }
+    
+    // Unir el array de nuevo en una cadena y retornar
+    return chars.join('');
+}
